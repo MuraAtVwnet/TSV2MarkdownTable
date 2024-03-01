@@ -15,10 +15,15 @@ TSV2MarkdownTable を実行すると、クリップボードにセットされ�
 ■ Online Install 方法
 以下コマンドを PowerShell プロンプトにコピペして下さい
 
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/MuraAtVwnet/TSV2MarkdownTable/master/TSV2MarkdownTable.psm1 -OutFile ~/GetAmazonURL.psm1
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/MuraAtVwnet/TSV2MarkdownTable/master/install.ps1 -OutFile ~/TSV2MarkdownTableInstall.ps1
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/MuraAtVwnet/TSV2MarkdownTable/master/uninstall.ps1 -OutFile ~/TSV2MarkdownTableuninstall.ps1
-~/TSV2MarkdownTableInstall.ps1
+$ScriptName = "TSV2MarkdownTable"
+$Module = $ScriptName + ".psm1"
+$Installer = $ScriptName + "Install.ps1"
+$UnInstaller = $ScriptName + "UnInstall.ps1"
+$UserProfile = $env:USERPROFILE
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/MuraAtVwnet/TSV2MarkdownTable/master/$ScriptName.psm1 -OutFile ~/$Module
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/MuraAtVwnet/TSV2MarkdownTable/master/install.ps1 -OutFile ~/$Installer
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/MuraAtVwnet/TSV2MarkdownTable/master/uninstall.ps1 -OutFile ~/$UnInstaller
+& ~/$Installer
 
 ■ リポジトリから Pull した場合の Install 方法
 install.ps1 を実行してください
