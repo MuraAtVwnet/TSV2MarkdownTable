@@ -20,11 +20,12 @@ $ScriptName = "TSV2MarkdownTable"
 $Module = $ScriptName + ".psm1"
 $Installer =  "Install" + $ScriptName + ".ps1"
 $UnInstaller = "UnInstall" + $ScriptName + ".ps1"
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/MuraAtVwnet/TSV2MarkdownTable/master/$Module -OutFile ~/$Module
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/MuraAtVwnet/TSV2MarkdownTable/master/install.ps1 -OutFile ~/$Installer
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/MuraAtVwnet/TSV2MarkdownTable/master/uninstall.ps1 -OutFile ~/$UnInstaller
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/MuraAtVwnet/$ScriptName/master/$Module -OutFile ~/$Module
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/MuraAtVwnet/$ScriptName/master/install.ps1 -OutFile ~/$Installer
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/MuraAtVwnet/$ScriptName/master/uninstall.ps1 -OutFile ~/$UnInstaller
 & ~/$Installer
 Remove-Item ~/$Module
+Remove-Item ~/$Installer
 
 
 ■ リポジトリから Pull した場合の Install 方法
