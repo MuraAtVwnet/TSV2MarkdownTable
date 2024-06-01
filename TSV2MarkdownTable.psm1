@@ -19,10 +19,10 @@
 			$Temp = $TSV -replace "^", "|"
 			$Temp = $Temp -replace "\t", "|"
 			$Temp = $Temp -replace "$", "|"
-			While($Temp -match "\|\|"){
+			while($Temp -match "\|\|"){
 				$Temp = $Temp -replace "\|\|", "| |"
 			}
-				$MarkdownTable += $Temp
+			$MarkdownTable += $Temp
 
 			if($FirsLoop -eq $true){
 				$MarkdownTable += $Separator
