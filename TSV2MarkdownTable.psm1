@@ -20,6 +20,9 @@
 			$Temp = $Temp -replace "\t", "|"
 			$Temp = $Temp -replace "$", "|"
 			$Temp = $Temp -replace "\|\|", "| |"
+			$Temp = $Temp -replace "\|\|", "| |"
+			$Temp = $Temp -replace "\|\|", "| |"
+			$Temp = $Temp -replace "\|\|", "| |"
    			$MarkdownTable += $Temp
 
 			if($FirsLoop -eq $true){
