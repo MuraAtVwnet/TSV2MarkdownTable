@@ -16,16 +16,10 @@ TSV2MarkdownTable を実行すると、クリップボードにセットされ�
 ■ Online Install 方法
 以下コマンドを PowerShell プロンプトにコピペして下さい
 
-$ScriptName = "TSV2MarkdownTable"
-$Module = $ScriptName + ".psm1"
-$Installer =  "Install" + $ScriptName + ".ps1"
-$UnInstaller = "UnInstall" + $ScriptName + ".ps1"
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/MuraAtVwnet/$ScriptName/master/$Module -OutFile ~/$Module
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/MuraAtVwnet/$ScriptName/master/install.ps1 -OutFile ~/$Installer
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/MuraAtVwnet/$ScriptName/master/uninstall.ps1 -OutFile ~/$UnInstaller
-& ~/$Installer
-Remove-Item ~/$Module
-Remove-Item ~/$Installer
+$ModuleName = "TSV2MarkdownTable"
+$GitHubName = "MuraAtVwnet"
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/$GitHubName/$ModuleName/master/OnlineInstall.ps1 -OutFile ~/OnlineInstall.ps1
+& ~/OnlineInstall.ps1
 
 
 ■ リポジトリから Pull した場合の Install 方法
@@ -37,10 +31,14 @@ Online でインストールした場合は ~/UnInstallTSV2MarkdownTable.ps1 を
 リポジトリから Pull した場合は uninstall.ps1 を実行して下さい
 (問い合わせが来たら Enter)
 
+■ バージョンチェック
+最新版がリポジトリにある場合は、-VertionCheck オプションでチェック & 更新します
+
+PS C:\> TSV2MarkdownTable -VertionCheck
 
 ■ 動作確認環境
 PowerShell 5.1
-PowerShell 7.4.1
+PowerShell 7.5.0
 
 
 ■ Web サイト
